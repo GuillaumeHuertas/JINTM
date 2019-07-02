@@ -21,7 +21,7 @@ if [ $response1 == "y" ] ; then
     
     # Connection en root (demande le mot de passe)
     # Lance les commandes root dans un flux et sort
-    su -c "
+    su -c '
 	echo "Mise-à-jour des paquets"
     apt-get update
     echo "Installation des paquets"
@@ -40,7 +40,7 @@ if [ $response1 == "y" ] ; then
     apt-get install nodejs -y
     node -v
     npm -v
-    exit"
+    exit'
     
 # Sinon affiche un message
 else 
