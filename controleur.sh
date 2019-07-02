@@ -21,6 +21,7 @@ javac -version 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "Javac n'est pas installé !"
+     ./installations/installationOpenJDK8.sh
 else 
 	echo "Javac est bien installé ! "
 fi
