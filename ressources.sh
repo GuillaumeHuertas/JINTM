@@ -22,23 +22,54 @@ if [ $response1 == "y" ] ; then
     # Connection en root (demande le mot de passe)
     # Lance les commandes root dans un flux et sort
     su -c '
-	echo "Mise-à-jour des paquets"
+    echo "##################################"
+	echo "#### Mise-à-jour des paquets #####"
+    echo "##################################"
     apt-get update
-    echo "Installation des paquets"
+    echo "##################################"
+	echo "#### Installation des paquets ####"
+    echo "##################################"
     apt-get upgrade -y
-    echo "Installation de open JDK"
+    echo "##################################"
+	echo "#### Installation de open JDK ####"
+    echo "##################################"
     apt-get install openjdk-8-jdk -y
-    java -version
-    javac -version
-    echo "Installation de Git"
+    echo "##################################"
+	echo "###### Installation de Git #######"
+    echo "##################################"
     apt-get install git -y
-    git version
-    echo "Curl"
+    echo "##################################"
+	echo "####### Installation Curl ########"
+    echo "##################################"
     apt-get install curl software-properties-common -y
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    echo "Installation de node.js"
+    echo "##################################"
+	echo "#### Installation de node.js #####"
+    echo "##################################"
     apt-get install nodejs -y
+    echo "##################################"
+	echo "######## Java en version ########"
+    echo "##################################"
+    java -version
+    echo "##################################"
+	echo "######## Javac en version ########"
+    echo "##################################"
+    javac -version
+    echo "##################################"
+	echo "####### Git en Version ###########"
+    echo "##################################"
+    git version
+    echo "##################################"
+	echo "######## Curl en version ########"
+    echo "##################################"
+    curl --version
+    echo "##################################"
+	echo "####### node.js en version #######"
+    echo "##################################"
     node -v
+    echo "##################################"
+	echo "######### npm en version #########"
+    echo "##################################"
     npm -v
     exit'
     
