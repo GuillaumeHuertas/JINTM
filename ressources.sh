@@ -20,7 +20,8 @@ echo "Nous allons avoir besoin de votre mot de passe root"
 if [ $response1 == "y" ] ; then
     
     # Connection en root (demande le mot de passe)
-    # Lance les commandes root dans un flux et sort
+    # Lance les commandes root dans un flux 
+    # Installe tous les paquets et donne les versions
     su -c '
     echo "##################################"
 	echo "#### Mise-à-jour des paquets #####"
@@ -48,7 +49,7 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     apt-get install nodejs -y
     echo "##################################"
-	echo "######## Java en version ########"
+	echo "######## Java en version #########"
     echo "##################################"
     java -version
     echo "##################################"
@@ -60,7 +61,7 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     git version
     echo "##################################"
-	echo "######## Curl en version ########"
+	echo "######## Curl en version #########"
     echo "##################################"
     curl --version
     echo "##################################"
@@ -71,6 +72,9 @@ if [ $response1 == "y" ] ; then
 	echo "######### npm en version #########"
     echo "##################################"
     npm -v
+    echo "##################################"
+	echo "######## Fin installation ########"
+    echo "##################################"
     exit'
     
 # Sinon affiche un message
