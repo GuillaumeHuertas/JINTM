@@ -26,7 +26,20 @@ if [ $response1 == "y" ] ; then
     apt-get update
     echo "Installation des paquets"
     apt-get upgrade -y
-
+    echo "Installation de open JDK"
+    apt-get install openjdk-8-jdk -y
+    java -version
+    javac -version
+    echo "Installation de Git"
+    apt-get install git -y
+    git version
+    echo "Curl"
+    apt-get install curl software-properties-common -y
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
+    echo "Installation de node.js"
+    apt-get install nodejs -y
+    node -v
+    npm -v
     exit"
     
 # Sinon affiche un message
