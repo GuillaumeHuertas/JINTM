@@ -45,5 +45,5 @@ if [ $response1 == "y" ] ; then
     javac -version
     exit'
 else 
-	echo "OpenJDK8 n'a pas été installé"
+	echo "Node.js n'a pas été installé"
 fi

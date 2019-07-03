@@ -42,5 +42,5 @@ if [ $response1 == "y" ] ; then
     curl --version
     exit'
 else 
-	echo "OpenJDK8 n'a pas été installé"
+	echo "Curl n'a pas été installé"
 fi
