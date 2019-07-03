@@ -4,7 +4,7 @@ read -p "Nous allons installer open JDK8, Git et node.js (LTS), vous confirmez ?
 
 # Si la réponse est vide donne la valeur N à la variable N (réponse par défaut)
 if [ -z $response1 ] ; then
-response="N"
+response1="N"
 fi
 
 # Tant que la réponse n'est pas y ou N, boucle pour obtenir une des deux réponse souhaité 

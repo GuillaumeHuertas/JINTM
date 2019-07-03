@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Nous allons controler que vous posséder les logiciels nécessaires pour générer votre application"
+echo "Vérification des paquets ..."
 
 # Demande la version de java
 java -version 2>/dev/null 

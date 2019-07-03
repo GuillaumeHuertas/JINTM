@@ -14,13 +14,17 @@ done
 
 if [ $response == "n" ] ; then
 
-	 ./ressources.sh
+	 ./installations/installationAll.sh
 
 else 
 
 	echo "J'espère que tout est bien installé !"
 
 fi
+
+echo "Nous allons vérifier que vous dites la vérité !"
+
+./controleur.sh
 
 echo "fini"
 
