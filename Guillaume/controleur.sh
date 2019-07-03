@@ -11,7 +11,7 @@ java -version 2>/dev/null 1>/dev/null
 # que Java n'est pas installlé
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[202mJava n'est pas installé\e[0m"
+     echo -e "\e[38;5;202mJava n'est pas installé\e[0m"
      # Appel le script d'installation de OpenJDK8
      ./installations/installationOpenJDK8.sh
 else 
