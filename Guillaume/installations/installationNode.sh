@@ -35,11 +35,11 @@ if [ $response1 == "y" ] ; then
 	echo "#### Installation de open JDK ####"
     echo "##################################"
     apt-get install openjdk-8-jdk -y
-    echo "\e[92m##################################"
+    echo -e "\e[92m##################################"
 	echo "####### Java en version :  #######"
     echo "##################################\e[0m"
     java -version
-    echo "\e[92m##################################"
+    echo -e "\e[92m##################################"
 	echo "####### Javac en version :  ######"
     echo "##################################\e[0m"
     javac -version

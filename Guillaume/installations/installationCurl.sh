@@ -36,7 +36,7 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     apt-get install curl software-properties-common -y
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    echo "\e[92m##################################"
+    echo -e "\e[92m##################################"
 	echo "######## Curl en version #########"
     echo "##################################\e[0m"
     curl --version

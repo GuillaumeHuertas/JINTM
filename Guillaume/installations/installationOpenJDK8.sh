@@ -39,7 +39,7 @@ if [ $response1 == "y" ] ; then
 	echo "####### Java en version :  #######"
     echo "##################################"
     java -version
-    echo "\e[92m##################################"
+    echo -e "\e[92m##################################"
 	echo "####### Javac en version :  ######"
     echo "##################################\e[0m"
     javac -version
