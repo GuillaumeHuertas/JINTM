@@ -38,7 +38,7 @@ if [ $response1 == "y" ] ; then
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
     echo -e "\e[92m##################################"
 	echo "######## Curl en version #########"
-    echo "##################################\e[0m"
+    echo -e "################################## \e[0m"
     curl --version
     exit'
 else 

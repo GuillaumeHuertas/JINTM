@@ -35,9 +35,9 @@ if [ $response1 == "y" ] ; then
 	echo "###### Installation de Git #######"
     echo "##################################"
     apt-get install git -y
-    echo "\e[92m##################################"
+    echo -e "\e[92m##################################"
 	echo "####### Git en Version ###########"
-    echo "##################################\e[0m"
+    echo -e "##################################\e[0m"
     git version
     exit'
 else 
