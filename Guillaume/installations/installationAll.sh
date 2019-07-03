@@ -4,7 +4,7 @@ read -p "Nous allons installer open JDK8, Git et node.js (LTS), vous confirmez ?
 
 # Si la réponse est vide donne la valeur N à la variable N (réponse par défaut)
 if [ -z $response1 ] ; then
-response="N"
+response1="N"
 fi
 
 # Tant que la réponse n'est pas y ou N, boucle pour obtenir une des deux réponse souhaité 
@@ -14,11 +14,9 @@ echo "Choisissez y ou N"
 read -p "Nous allons installer open JDK8, Git et node.js (LTS), vous confirmez ?  (y/N) " response1
 done
 
-echo "Nous allons avoir besoin de votre mot de passe root"
-
 # Si la réponse est y installe et met-à-jour les paquets
 if [ $response1 == "y" ] ; then
-    
+    echo "Nous allons avoir besoin de votre mot de passe root"
     # Connection en root (demande le mot de passe)
     # Lance les commandes root dans un flux 
     # Installe tous les paquets et donne les versions
@@ -79,5 +77,6 @@ if [ $response1 == "y" ] ; then
     
 # Sinon affiche un message
 else 
-	echo "Les paquets ne seront pas installés"
+    # Affiche le message en rouge
+    echo -e "\e[91mLes paquets ne seront pas installés\e[0m"
 fi
