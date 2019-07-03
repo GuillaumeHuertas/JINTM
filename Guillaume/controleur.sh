@@ -11,7 +11,7 @@ java -version 2>/dev/null 1>/dev/null
 # que Java n'est pas installlé
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mJava n'est pas installé\e[0m"
+     echo -e "\e[202mJava n'est pas installé\e[0m"
      # Appel le script d'installation de OpenJDK8
      ./installations/installationOpenJDK8.sh
 else 
@@ -24,7 +24,7 @@ javac -version 2>/dev/null >/dev/null
 # Idem 
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mJavac n'est pas installé !\e[0m"
+     echo -e "\e[202mJavac n'est pas installé !\e[0m"
      # Appel le script d'installation de OpenJDK8
      ./installations/installationOpenJDK8.sh
 else 
@@ -37,7 +37,7 @@ git version >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mGit n'est pas installé !\e[0m"
+     echo -e "\e[202mGit n'est pas installé !\e[0m"
      # Appel le script d'installation de Git
      ./installations/installationGit.sh
 else 
@@ -50,7 +50,7 @@ curl --version >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mCurl n'est pas installé !\e[0m"
+     echo -e "\e[202mCurl n'est pas installé !\e[0m"
      # Appel le script d'installation de Curl
      ./installations/installationCurl.sh
 else 
@@ -63,7 +63,7 @@ node -v >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mnode.js n'est pas installé !\e[0m"
+     echo -e "\e[202mnode.js n'est pas installé !\e[0m"
      # Appel le script d'installation de Node.js
      ./installations/installationNode.sh
 else 
@@ -76,7 +76,7 @@ npm -v >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune
-     echo -e "\e[93mnpm n'est pas installé !\e[0m"
+     echo -e "\e[202mnpm n'est pas installé !\e[0m"
      # Appel le script d'installation de Node.js
      ./installations/installationNode.sh
 else 
