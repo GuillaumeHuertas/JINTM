@@ -67,11 +67,7 @@ done
 
 #--------------------------------------------------------------------------------#--------------------------------------------------------------------------------
 
-
-mkdir microservice;
-cd microservice;
-
-echo "package $str.microservice;
+echo "package $str;
 
 import org.springframework.boot.SpringApplication;
 
@@ -84,8 +80,6 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }" > Application.java;
-cd ..
-
 
 #--------------------------------------------------------------------------------#--------------------------------------------------------------------------------
 
