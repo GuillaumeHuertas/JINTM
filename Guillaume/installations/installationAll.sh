@@ -77,5 +77,6 @@ if [ $response1 == "y" ] ; then
     
 # Sinon affiche un message
 else 
-	echo "Les paquets ne seront pas installés"
+    # Affiche le message en rouge
+    echo -e "\e[91mLes paquets ne seront pas installés\e[0m"
 fi

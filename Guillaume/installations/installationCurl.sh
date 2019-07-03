@@ -42,5 +42,6 @@ if [ $response1 == "y" ] ; then
     curl --version
     exit'
 else 
-	echo "Curl n'a pas été installé"
+    # Affiche le message en rouge
+    echo -e "\e[91mCurl n'a pas été installé\e[0m"
 fi

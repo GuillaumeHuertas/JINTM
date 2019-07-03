@@ -41,5 +41,6 @@ if [ $response1 == "y" ] ; then
     git version
     exit'
 else 
-	echo "Git n'a pas été installé"
+    # Affiche le message en rouge
+    echo -e "\e[91mGit n'a pas été installé\e[0m"
 fi

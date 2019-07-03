@@ -45,5 +45,6 @@ if [ $response1 == "y" ] ; then
     javac -version
     exit'
 else 
-	echo "Node.js n'a pas été installé"
+    # Affiche le message en rouge
+    echo -e "\e[91mNode.js n'a pas été installé\e[0m"
 fi
