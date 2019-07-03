@@ -3,7 +3,7 @@
 echo "Vérification des paquets ..."
 
 # Demande la version de java
-java -version 2>/dev/null 
+java -version 2>/dev/null 1>/dev/null 
 # 2>/dev/null permet de ne pas afficher le résultat dans la console
 # Si Java est installé le code retour est 0
 
@@ -18,7 +18,7 @@ else
 fi
 
 # Demande la version de Javac
-javac -version 2>/dev/null
+javac -version 2>/dev/null >/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "Javac n'est pas installé !"
