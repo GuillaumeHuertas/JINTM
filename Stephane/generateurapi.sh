@@ -3,8 +3,8 @@
 nom=$lenomduprojet;
 str=$lepackageduprojet;
 objet=$lenomdelobjet;
-echo -e "\e[32mCreation de la classe d'api";
-echo "$cr>Nom du projet : $nom  $cr>Nom du package : $str  $cr>Nom de la classe d'api : $objet $cr";
+echo -e "\e[92mCreation de la classe d'api\e[0m";
+
 for var in "${objetsvaleurs[@]}"
 	do
 	if [  $((i%2)) -eq 0 ];then
@@ -15,7 +15,6 @@ for var in "${objetsvaleurs[@]}"
 	fi
 	done
 #--------------------------------------------------------------------------------
-echo -e "\e[39m";
  
 declare -l objet
 objet=$objet;
@@ -296,8 +295,4 @@ done
 
 cd ..;
 
-
-
-
-
-
+echo -e "\e[91mFin de la creation de la classe d'api\e[0m";

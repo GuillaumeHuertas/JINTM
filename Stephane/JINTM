@@ -19,7 +19,7 @@ read -p "Quel est le nom de votre package ? " package
 # Choisir entre Postgres et Mysql 
 #read -p "Quel Base de donnée voulez-vous utiliser ? "
 
-
+#tout mettre en minuscule
 declare -l projet
 projet=$projet;
 
@@ -29,28 +29,27 @@ package=$package;
 # Genere une application maven avec l'archetype webapp
 
 echo -e "\e[92mDemarrage de la génération du projet Maven\e[39m";
-mvn archetype:generate -DgroupId=$package -DartifactId=$projet -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false >>/dev/null
+mvn archetype:generate -DgroupId=$package -DartifactId=$projet -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false >>.log 1>>.log 2>>.log
 
 echo -e "\e[91mFin de la génération du projet Maven\e[39m"
-ls -al
 # Se déplace dans le projet
 cd $projet; 
 # Créer les dossiers pour le projet
-mkdir -p src/main/java; 
-mkdir -p src/main/resources; 
-mkdir -p src/test/java; 
-mkdir -p src/test/resources; 
+mkdir -p src/main/java >>.log 1>>.log 2>>.log
+mkdir -p src/main/resources >>.log 1>>.log 2>>.log
+mkdir -p src/test/java >>.log 1>>.log 2>>.log
+mkdir -p src/test/resources >>.log 1>>.log 2>>.log
 
 echo -e "\e[92mDemarrage de la génération du projet Angular\e[39m";
 # Génère une application angular
-ng new angularApp --skipGit=true --interactive=false --routing=true --style=scss >>/dev/null
+ng new angularApp --skipGit=true --interactive=false --routing=true --style=scss >>../.log 1>>../.log 2>>../.log
 echo -e "\e[91mFin de la génération du projet Angular\e[39m"
 
 # Se déplace dans l'application Angular
 cd angularApp; 
 # Installe boostrap dans le projet 
 echo -e "\e[92mInstallation de Bootstrap ( faites le avec le style ! )\e[39m";
-npm install bootstrap@3.3.7 --save >>/dev/null
+npm install bootstrap@3.3.7 --save >>../../.log 1>>../../.log 2>>../../.log
 echo -e "\e[91mFin de l'installation de Boostrap\e[39m"
 
 #Remplacer la premiere occurence de style pour y ajouter le bootstrap
@@ -137,18 +136,17 @@ mvn install;
 cd target; 
 java -jar *.war; ' >> .compilateur; 
 # Déclare le compilateur comme exécutable
-chmod 755 .compilateur; 
+chmod 755 .compilateur >>../.log 1>>../.log 2>>../.log
 
 echo -e "\e[91mFin de creation du fichier de mise en prod\e[39m";
 
 echo -e "\e[92mInitialisation du dépôt Git\e[39m"
 # Initialise le dépôt Git
-git init;
+git init >>../.log 1>>../.log 2>>../.log
 # Ajoute les fichier au HEAD 
-git add .; 
+git add . >>../.log 1>>../.log 2>>../.log 
 # Commit les fichiers
-git commit -m "Initialisation du projet"; 
-git log;
+git commit -m "Initialisation du projet" >>../.log 1>>../.log 2>>../.log
 
 echo -e "\e[91mFin d'initialisation du dépôt Git\e[39m"
 

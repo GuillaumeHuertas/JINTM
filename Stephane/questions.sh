@@ -89,8 +89,7 @@ while [ $break != "true" ]
     break="false";
     fi
     done
-    echo "Execution du fichier !$cr>$cr>$cr>$cr>$cr> ";
-    . ./test1.sh
+    . ./generateurapi.sh
 fi
 
 
