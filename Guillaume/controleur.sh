@@ -29,7 +29,7 @@ else
 fi
 
 # Demande la version de Git
-git version >/dev/null
+git version >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "Git n'est pas installé !"
@@ -40,7 +40,7 @@ else
 fi
 
 # Demande la version de Curl
-curl --version >/dev/null
+curl --version >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "Curl n'est pas installé !"
@@ -51,7 +51,7 @@ else
 fi
 
 # Demande la version de node.js
-node -v >/dev/null
+node -v >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "node.js n'est pas installé !"
@@ -62,7 +62,7 @@ else
 fi
 
 # Demande la version de npm
-npm -v >/dev/null
+npm -v >/dev/null 2>/dev/null
 # Idem 
 if [ $? != 0 ] ; then
 	 echo "npm n'est pas installé !"
