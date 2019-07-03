@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Voulez vous lancer JINTM ? (y/N) "
+read -p "Voulez vous lancer JINTM ? (y/N) " response
 
 if [ -z $response ] ; then
 response="N"
@@ -12,9 +12,12 @@ echo "Choisissez y ou N"
 read -p "Voulez vous lancer JINTM ? (y/N)  " response
 done
 
-if [ $response == "Y" ] ; then
+if [ $response == "y" ] ; then
 
-	 wget https://github.com/GuillaumeHuertas/JINTM/Guillaume/installeur.sh
+
+	 wget https://raw.githubusercontent.com/GuillaumeHuertas/JINTM/master/Guillaume/Installeur.sh
+     chmod 755 Installeur.sh
+     ./Installeur.sh
 
 else 
 
