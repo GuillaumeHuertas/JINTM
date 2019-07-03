@@ -32,7 +32,7 @@ echo -e "\e[92mDemarrage de la génération du projet Maven\e[39m";
 mvn archetype:generate -DgroupId=$package -DartifactId=$projet -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false >>/dev/null
 
 echo -e "\e[91mFin de la génération du projet Maven\e[39m"
-
+ls -al
 # Se déplace dans le projet
 cd $projet; 
 # Créer les dossiers pour le projet
@@ -157,8 +157,4 @@ lepackageduprojet=$package;
 
 
 cd ..;
-
-
-. ./test1.sh;
-
-
+	. ./questions.sh

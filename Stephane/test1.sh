@@ -1,28 +1,27 @@
 #!/bin/bash
 
-
-
 nom=$lenomduprojet;
 str=$lepackageduprojet;
-
-
-echo "Creation de la classe de test utilisateur";
-
-
+objet=$lenomdelobjet;
+echo -e "\e[32mCreation de la classe d'api";
+echo "$cr>Nom du projet : $nom  $cr>Nom du package : $str  $cr>Nom de la classe d'api : $objet $cr";
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+	else
+		nomtype=${var};
+		echo -e ">> $nomvar \t $nomtype $cr"
+	fi
+	done
 #--------------------------------------------------------------------------------
+echo -e "\e[39m";
  
-
-
-objet="UtIlIsAtEuR";
 declare -l objet
 objet=$objet;
 
-
 objetup=$objet;
 objetup=`echo ${objetup:0:1} | tr  '[a-z]' '[A-Z]'`${objetup:1}
-
-
-objetsvaleurs=(nom String age int login String);
 
 #--------------------------------------------------------------------------------
 
@@ -213,10 +212,7 @@ cd ..;
 
 mkdir controller;
 cd controller;
-echo "
-
-
-package $str.controller;
+echo "package $str.controller;
 
 import java.util.HashMap;
 import java.util.List;
