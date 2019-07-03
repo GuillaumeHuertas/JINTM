@@ -45,5 +45,6 @@ if [ $response1 == "y" ] ; then
     javac -version
     exit'
 else 
+    echo -e "\e[91mOpenJDK8 n'a pas été installé\e[0m"
 	echo "OpenJDK8 n'a pas été installé"
 fi
