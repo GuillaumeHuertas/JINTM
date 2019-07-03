@@ -16,11 +16,9 @@ echo "Choisissez y ou N"
 read -p "Voulez-vous installer open JDK8  (y/N) " response1
 done
 
-echo "Nous allons avoir besoin de votre mot de passe root"
-
 # Si la réponse est y installe et met-à-jour les paquets
 if [ $response1 == "y" ] ; then
-    
+    echo "Nous allons avoir besoin de votre mot de passe root"
     # Connection en root (demande le mot de passe)
     # Lance les commandes root dans un flux 
     # Installe tous les paquets et donne les versions
