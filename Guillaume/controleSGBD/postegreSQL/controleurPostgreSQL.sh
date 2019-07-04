@@ -19,4 +19,5 @@ if [ $? != 0 ] ; then
 else 
      # Affiche le message en Vert
      echo -e "\e[92mPostreSQL est bien installé !\e[0m"
+     
 fi
