@@ -25,8 +25,8 @@ EOF
 su -c "
 # Met-à-jour les paquets
 apt-get update
-# Install
-apt-get install postgresql postgresql-client
+# Installation de postgresql et son client
+apt-get install postgresql postgresql-client -y
 # Redémarre le serveur 
 service postgresql restart
 # Vérifie que le programme tourne en tâche de fond 
