@@ -15,7 +15,7 @@ psql --version 2>/dev/null 1>/dev/null
 if [ $? != 0 ] ; then
      # Affiche le message en Jaune  
      echo -e "\e[38;5;202mPosgreSQL n est pas installé\e[0m"
-     ./installationPostregreSQL.sh
+     ./installationPostgreSQL.sh
 else 
      # Affiche le message en Vert
      echo -e "\e[92mPostreSQL est bien installé !\e[0m"
