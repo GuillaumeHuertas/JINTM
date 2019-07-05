@@ -12,7 +12,7 @@ psql --version 2>/dev/null 1>/dev/null
 
 # Si le code retours est différents de 0 un message nous averti
 # que Java n'est pas installlé
-if [ $? != 1 ] ; then
+if [ $? != 0 ] ; then
      # Affiche le message en Jaune  
      echo -e "\e[38;5;202mPosgreSQL n est pas installé\e[0m"
      ./installationPostregreSQL.sh
