@@ -91,5 +91,3 @@ while [ $break != "true" ]
     done
     . ./generateurapi.sh
 fi
-
-
