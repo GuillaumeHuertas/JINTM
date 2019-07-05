@@ -32,17 +32,17 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     apt-get upgrade -y
     echo "##################################"
-	echo "#### Installation de open JDK ####"
+	echo "#### Installation de node.js #####"
     echo "##################################"
-    apt-get install openjdk-8-jdk -y
-    echo -e "\e[92m##################################"
-	echo "####### Java en version :  #######"
+    apt-get install nodejs -y
+     echo "##################################"
+    echo "####### nodeJs en version :  #######"
     echo "##################################\e[0m"
-    java -version
+     nodejs -v
     echo -e "\e[92m##################################"
-	echo "####### Javac en version :  ######"
+	echo "####### npm en version :  ######"
     echo -e "##################################\e[0m"
-    javac -version
+    npm -
     exit'
 else 
     # Affiche le message en rouge
