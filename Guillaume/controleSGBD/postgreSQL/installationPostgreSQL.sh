@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Nous allons installer PostgreSQL et créer un user et une base de données pour JINTM"
+echo "Nous allons installer PostgreSQL, créer un user et une base de données pour JINTM"
 read -p "Validez-vous ? (y/N) " response
 
 if [ -z $response ] ; then

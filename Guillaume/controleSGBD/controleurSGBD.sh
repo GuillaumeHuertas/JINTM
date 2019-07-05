@@ -17,11 +17,13 @@ done
 
 if [ $response == "1" ] ; then
 	echo "Vous avez choisi une SGBD PostegreSQL"
-    postgreSQL/controleurPostgreSQL.sh
+    cd postgreSQL
+    ./controleurPostgreSQL.sh
+    cd ..
 elif [ $response == "2" ] ; then
 	echo "Vous avez choisi une SGBD MariaDB"
+    echo "Pas encore implementé"
 else
-
     echo "Vous avez choisi une SGBD H2"
     echo "Pas encore implementé"
 fi
