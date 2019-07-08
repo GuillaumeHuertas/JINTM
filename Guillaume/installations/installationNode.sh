@@ -32,7 +32,7 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     apt-get upgrade -y
     echo "##################################"
-	echo "#### Installation de open JDK ####"
+	echo "#### Installation de node.js #####"
     echo "##################################"
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
     apt-get install nodejs -y
@@ -40,6 +40,10 @@ if [ $response1 == "y" ] ; then
 	echo "####### Node en version :  #######"
     echo "##################################\e[0m"
     node -v
+    echo -e "\e[92m##################################"
+	echo "####### npm en version :  ######"
+    echo -e "##################################\e[0m"
+    npm -v
     exit'
 else 
     # Affiche le message en rouge
