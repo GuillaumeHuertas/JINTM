@@ -41,10 +41,10 @@ if [ $response1 == "y" ] ; then
 	echo "####### Installation Curl ########"
     echo "##################################"
     apt-get install curl software-properties-common -y
-    curl -sL https://deb.nodesource.com/setup_10.x | bash -
     echo "##################################"
 	echo "#### Installation de node.js #####"
     echo "##################################"
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
     apt-get install nodejs -y
     echo "##################################"
 	echo "######## Java en version #########"
