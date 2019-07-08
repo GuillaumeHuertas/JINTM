@@ -36,6 +36,7 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
     apt-get install nodejs -y
+    npm install -g npm@latest
     echo -e "\e[92m##################################"
 	echo "####### Node en version :  #######"
     echo "##################################\e[0m"
