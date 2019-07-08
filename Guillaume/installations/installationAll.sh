@@ -34,6 +34,10 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     apt-get install openjdk-8-jdk -y
     echo "##################################"
+	echo "##### Installation de Maven ######"
+    echo "##################################"
+    apt-get install maven
+    echo "##################################"
 	echo "###### Installation de Git #######"
     echo "##################################"
     apt-get install git -y
@@ -56,6 +60,10 @@ if [ $response1 == "y" ] ; then
 	echo "######## Javac en version ########"
     echo "##################################"
     javac -version
+    echo "##################################"
+	echo "######## Maven en version ########"
+    echo "##################################"
+    mvn --version
     echo "##################################"
 	echo "####### Git en Version ###########"
     echo "##################################"
