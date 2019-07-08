@@ -46,6 +46,8 @@ if [ $response1 == "y" ] ; then
     echo "##################################"
     curl -sL https://deb.nodesource.com/setup_10.x | bash -
     apt-get install nodejs -y
+    npm install -g npm@latest
+    npm install -g @angular/cli
     echo "##################################"
 	echo "######## Java en version #########"
     echo "##################################"
@@ -70,6 +72,10 @@ if [ $response1 == "y" ] ; then
 	echo "######### npm en version #########"
     echo "##################################"
     npm -v
+    echo "##################################"
+	echo "####### Angular en version #######"
+    echo "##################################"
+    ng version
     echo "##################################"
 	echo "######## Fin installation ########"
     echo "##################################"
