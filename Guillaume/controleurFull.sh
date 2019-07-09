@@ -100,53 +100,47 @@ fi
 #######################################################################################
 #######################################################################################
 
+# Si l'un des paquets testés n'est pas installé, le if se lance
 if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
 || $install4 == "no" || $install5 == "no" || $install6 == "no" \
 || $install7 == "no" ]] ; then
-    echo "C'est la merde noir ! "
-fi
-
-read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
-
-if [ -z $response ] ; then
-response="Y"
-fi
-
-while [[ "$response" != "Y" && "$response" != "n" ]]
-do
-echo "Choisissez Y ou n"
-read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
-done
-
-if [ $response == "n" ] ; then
-	echo "Vous ne pourrez utiliser le générateur de code ..."
-    exit 1
-else 
-	echo "C'est parti !! "
-    su -c '
-
-        echo '$install1'
-        echo '$install2'
-        echo '$install3'
-        echo '$install4'
-        echo '$install5'
-        echo '$install6'
-        echo '$install7'
-
-
-
-
-        #apt-get update && apt-get upgrade
-        if [ "'$install1'" == "no" ] ; then
-        apt-get install openjdk-8-jdk -y
-        fi'
     
+    read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
+
+    if [ -z $response ] ; then
+    response="Y"
+    fi
+
+    while [[ "$response" != "Y" && "$response" != "n" ]]
+    do
+        echo "Choisissez Y ou n"
+        read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
+    done    
+
+    if [ $response == "n" ] ; then
+	    echo "Vous ne pourrez utiliser le générateur de code ..."
+        exit 1
+    else 
+	    echo "C'est parti !! "
+        su -c '
+
+            echo '$install1'
+            echo '$install2'
+            echo '$install3'
+            echo '$install4'
+            echo '$install5'
+            echo '$install6'
+            echo '$install7'
 
 
 
 
-
-
+            #apt-get update && apt-get upgrade
+            if [ "'$install1'" == "no" ] ; then
+            apt-get install openjdk-8-jdk -y
+            fi'
+    
+    fi
 fi
 echo "test1"
 
