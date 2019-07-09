@@ -137,8 +137,12 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
 
             #apt-get update && apt-get upgrade
             if [ "'$install1'" == "no" ] ; then
-            apt-get install openjdk-8-jdk -y
+            echo "Installation de OpenJDK 8 ..."
+            apt-get install openjdk-8-jdk -y >/dev/null 2>/dev/null
+            echo -e "\e[92mJava est bien installé !\e[0m"
             fi'
+
+            ./controleurFull.sh
     
     fi
 fi
