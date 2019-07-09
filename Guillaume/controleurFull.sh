@@ -125,7 +125,8 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
         su -c '
 
             # Met-à-jour et installe les paquets 
-            apt-get update && apt-get upgrade >/dev/null 2>/dev/null
+            apt-get update >/dev/null 2>/dev/null
+            apt-get upgrade >/dev/null 2>/dev/null
 
             #Installation JDK 8 
             if [ "'$install1'" == "no" ] ; then
