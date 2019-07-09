@@ -58,10 +58,9 @@ else
 
         echo '$install1'
         #apt-get update && apt-get upgrade
-        #if ["$install1" == "no"] ; then
-        #apt-get install openjdk-8-jdk -y
-        #fi
-    '
+        if [ "'$install1'" == "no" ] ; then
+        apt-get install openjdk-8-jdk -y
+        fi'
     
 
 
