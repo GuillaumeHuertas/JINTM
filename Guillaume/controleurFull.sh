@@ -56,7 +56,7 @@ else
 	echo "C'est parti !! "
     su -c '
         apt-get update && apt-get upgrade
-        if ["$install1" == "no"] ; then
+        if ["'+$install1+'" == "no"] ; then
         apt-get install openjdk-8-jdk -y
         fi'
     
