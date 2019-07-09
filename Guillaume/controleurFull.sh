@@ -99,6 +99,12 @@ fi
 
 #######################################################################################
 #######################################################################################
+
+if [[ install1 == "no" | install2 == "no" ]] ; then
+do
+    echo "C'est la merde noir ! "
+fi
+
 read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
 
 if [ -z $response ] ; then
