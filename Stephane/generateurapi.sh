@@ -36,9 +36,9 @@ cd $nom;
 cd src/main/resources;
 
 echo "server.port=8080
-spring.datasource.url=jdbc:postgresql://localhost:5432/mabase
-spring.datasource.username=tom
-spring.datasource.password=tom
+spring.datasource.url=jdbc:postgresql://localhost:5432/jintm
+spring.datasource.username=jintm
+spring.datasource.password=jintm
 spring.jpa.show-sql=true
 
 ## Hibernate Properties
@@ -216,6 +216,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -229,6 +230,7 @@ import $str.exception.ResourceNotFoundException;
 import $str.model.$objetup;
 import $str.repository."$objetup"Repository;
 
+@CrossOrigin
 @RestController
 @RequestMapping(\"/api/v1\")
 public class "$objetup"Controller {
