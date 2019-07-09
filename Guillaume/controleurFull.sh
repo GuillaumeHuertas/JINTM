@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Script qui vérifie toutes les isntallations
+
 echo "Vérification des paquets ..."
 
 # Demande la version de java
@@ -117,6 +119,16 @@ else
     su -c '
 
         echo '$install1'
+        echo '$install2'
+        echo '$install3'
+        echo '$install4'
+        echo '$install5'
+        echo '$install6'
+        echo '$install7'
+
+
+
+
         #apt-get update && apt-get upgrade
         if [ "'$install1'" == "no" ] ; then
         apt-get install openjdk-8-jdk -y
