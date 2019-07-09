@@ -37,7 +37,7 @@ else
 fi
 
 
-read -p "Voulez-vous que nous installions les packages manquants ?" response
+read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
 
 if [ -z $response ] ; then
 response="Y"
@@ -46,7 +46,7 @@ fi
 while [[ "$response" != "Y" && "$response" != "n" ]]
 do
 echo "Choisissez Y ou n"
-read -p "Voulez-vous que nous installions les packages manquants ?" response
+read -p "Voulez-vous que nous installions les packages manquants ? (Y/n)" response
 done
 
 if [ $response == "n" ] ; then
@@ -55,11 +55,13 @@ if [ $response == "n" ] ; then
 else 
 	echo "C'est parti !! "
     su -c '
-        apt-get update && apt-get upgrade
-        if ["'$install1'" == "no"] ; then
-        apt-get install openjdk-8-jdk -y
-        fi'
-    
+
+        echo '$install1'
+        #apt-get update && apt-get upgrade
+        #if ["'$install1'" == "no"] ; then
+        #apt-get install openjdk-8-jdk -y
+        #fi'
+    '
     
 
 
