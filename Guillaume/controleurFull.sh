@@ -121,8 +121,7 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
 	    echo "[EXIT] Vous ne pourrez utiliser le générateur de code ..."
         exit 1
     else 
-	    echo "[QUESTION] Nous allons avoir besoin de votre mot de passe root 
-        pour effectuer les installations à votre place "
+	    echo "[QUESTION] Nous allons avoir besoin de votre mot de passe root pour effectuer les installations à votre place "
         su -c '
             # Met-à-jour et installe les paquets 
             echo "[INFO] Mise-à-jour et installations des paquets ..."
