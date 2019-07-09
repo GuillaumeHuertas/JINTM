@@ -174,7 +174,10 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
             ./controleurFull.sh
     
     fi
+else
+echo "Vous possédez tous les paquets nécessaires pour continuer !!! "
+exit 2
 fi
-echo "Fini !!! "
+
 
 exit 0
