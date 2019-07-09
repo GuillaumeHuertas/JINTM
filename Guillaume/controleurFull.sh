@@ -125,7 +125,7 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
         pour effectuer les installations à votre place "
         su -c '
             # Met-à-jour et installe les paquets 
-            echo "[INFO] Mise-à-jour et installations des paquets"
+            echo "[INFO] Mise-à-jour et installations des paquets ..."
             apt-get update >/dev/null 2>/dev/null
             apt-get upgrade >/dev/null 2>/dev/null
 
