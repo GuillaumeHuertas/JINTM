@@ -124,28 +124,57 @@ if [[ $install1 == "no" || $install2 == "no" || $install3 == "no" \
 	    echo "C'est parti !! "
         su -c '
 
-            echo '$install1'
-            echo '$install2'
-            echo '$install3'
-            echo '$install4'
-            echo '$install5'
-            echo '$install6'
-            echo '$install7'
+            # Met-à-jour et installe les paquets 
+            apt-get update && apt-get upgrade
 
-
-
-
-            #apt-get update && apt-get upgrade
+            #Installation JDK 8 
             if [ "'$install1'" == "no" ] ; then
             echo "Installation de OpenJDK 8 ..."
             apt-get install openjdk-8-jdk -y >/dev/null 2>/dev/null
-            echo -e "\e[92mJava est bien installé !\e[0m"
+            fi
+
+            # Installation Maven
+            if [ "'$install2'" == "no" ] ; then
+            echo "Installation de Maven ..."
+            apt-get install maven -y >/dev/null 2>/dev/null
+            fi
+
+            # Installation Git
+            if [ "'$install3'" == "no" ] ; then
+            echo "Installation de Git ..."
+            apt-get install git -y >/dev/null 2>/dev/null
+            fi
+
+            # Installation Curl
+            if [ "'$install4'" == "no" ] ; then
+            echo "Installation de Curl ..."
+            apt-get install curl software-properties-common -y >/dev/null 2>/dev/null
+            fi
+
+             # Installation Node.js
+            if [ "'$install5'" == "no" ] ; then
+            echo "Installation de Node.js ..."
+            curl -sL https://deb.nodesource.com/setup_10.x | bash - >/dev/null 2>/dev/null
+            apt-get install nodejs -y >/dev/null 2>/dev/null
+            fi
+
+            # Installation nmp latest
+            if [ "'$install6'" == "no" ] ; then
+            echo "Installation de npm latest ..."
+            echo "yes" | npm install -g npm@latest >/dev/null 2>/dev/null
+            fi
+
+            # Installation nmp latest
+            if [ "'$install7'" == "no" ] ; then
+            echo "Installation de npm latest ..."
+            echo "yes" | npm install -g @angular/cli >/dev/null 2>/dev/null
             fi'
 
+            # Relance le controleur pour vérifier que tout est bien installlé !
             ./controleurFull.sh
     
     fi
 fi
-echo "test1"
+echo "Fini !!! "
 
 exit 0
