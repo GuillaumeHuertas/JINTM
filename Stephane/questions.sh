@@ -89,5 +89,9 @@ while [ $break != "true" ]
     break="false";
     fi
     done
-    . ./generateurapi.sh
+    . ./generateurApiJava.sh
+	cd ..;
+    . ./generateurAngular.sh
+
+pwd
 fi

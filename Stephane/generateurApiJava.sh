@@ -296,6 +296,14 @@ for var in "${objetsvaleurs[@]}"
 	let "i++";
 done
 
-cd ..;
+cd ..
+
+
+for i in "${ADDR[@]}"; do # access each element of array
+    cd ..; 
+done
+
+cd ../../..;
 
 echo -e "\e[91mFin de la creation de la classe d'api\e[0m";
+
