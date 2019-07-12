@@ -181,7 +181,7 @@ export class "$objetup"Service implements OnInit {
   }
 
   getsingle"$objet"(id: number) {
-    return this.http.get<"$objet">(this.addr + "/" + id);
+    return this.http.get<"$objet">(this.addr + '/' + id);
   }
 
   createNew"$objet"(obj: "$objet") {
@@ -640,6 +640,10 @@ echo "</div>" >> $objet-form.component.html;
 " >> $objet-form.component.html;
 
 
+#====================================================================================
+cd ..;
+mkdir $objet-edit;
+cd $objet-edit;
 
 #==================OBJET-EDIT.COMPONENT.TS===========================================
 
@@ -665,38 +669,40 @@ for var in "${objetsvaleurs[@]}"
 		declare -l nomvar
 echo $nomvar": ['', Validators.required]," >>  "$objet"-edit.component.ts;	
 fi
+	let "i++";
 done
 
 
 echo "  });
   
   constructor(private formBuilder: FormBuilder,
-    private service: "$nomvarup"Service,
+    private service: "$objetup"Service,
     private router: Router,
     private route: ActivatedRoute) { }
 
   id: any;
-  "$nomvar"1: "$nomvar";
+  "$objet"1: "$objet";
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    this.service.getsingle"$nomvar"(+this.id).subscribe((value) => {
-    this."$nomvar"1 = value
+    this.service.getsingle"$objet"(+this.id).subscribe((value) => {
+    this."$objet"1 = value
     this.initForm();
     });
   }
 
   initForm() {
-    this."$nomvar"EditForm.setValue({" >> "$objet"-edit.component.ts;
+    this."$objet"EditForm.setValue({" >> "$objet"-edit.component.ts;
 
-
+i=0;
 for var in "${objetsvaleurs[@]}"
 	do
-	if [  $((i%2)) -eq 0 ];then
+	if [ $((i%2)) -eq 0 ];then
 		nomvar=${var};
 		declare -l nomvar
 echo $nomvar": this."$objet"1."$nomvar"," >>  "$objet"-edit.component.ts;	
 fi
+	let "i++";
 done
  echo " });
   }
@@ -705,15 +711,16 @@ done
  	const new"$objet" = new "$objet"();
 	new"$objet".id=+this.id;
 " >> "$objet"-edit.component.ts;
-
+i=0;
 for var in "${objetsvaleurs[@]}"
 	do
-	if [  $((i%2)) -eq 0 ];then
+	if [ $((i%2)) -eq 0 ];then
 		nomvar=${var};
 		declare -l nomvar
 echo "const "$nomvar" = this."$objet"EditForm.get('"$nomvar"').value;
 new"$objet"."$nomvar" = "$nomvar"; " >>  "$objet"-edit.component.ts;	
 fi
+	let "i++";
 done
  echo "   this.service.editOne"$objet"(new"$objet").subscribe(data =>{this.router.navigate(['/"$objet"']);});
   }
@@ -762,8 +769,8 @@ touch "$objet"-edit.component.scss;
 
 echo "<div class=\"row\">
   <div class=\"col-sm-8 col-sm-offset-2\">
-    <h2>Créer un "$objetup"</h2>
-    <form [formGroup]=\""$objet"EditForm\" (ngSubmit)=\"onSave"$objet"()\">" > $objet-form.component.html;
+    <h2>Editer un "$objetup"</h2>
+    <form [formGroup]=\""$objet"EditForm\" (ngSubmit)=\"onSave"$objet"()\">" > $objet-edit.component.html;
 
 for var in "${objetsvaleurs[@]}"
 	do
@@ -776,14 +783,14 @@ for var in "${objetsvaleurs[@]}"
 		nomtype=${var};
 #ECHO ICI
 echo "<div class=\"form-group\">
- <label for=\"$nomvar\">$nomvarup</label>" >>$objet-form.component.html;
+ <label for=\"$nomvar\">$nomvarup</label>" >>$objet-edit.component.html;
 	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ]; then
-		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-edit.component.html;
 
 	elif  [ "$nomtype" == "int" ] || [ "$nomtype" == "float" ]; then
-echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-edit.component.html;
 fi
-echo "</div>" >> $objet-form.component.html;
+echo "</div>" >> $objet-edit.component.html;
 	fi
 	let "i++";
 	done
@@ -795,7 +802,7 @@ echo "</div>" >> $objet-form.component.html;
     </button>
   </div>
 </div>
-" >> $objet-form.component.html;
+" >> $objet-edit.component.html;
 
 #====================================================================================
 
@@ -803,7 +810,7 @@ cd ../.. ;
 mkdir header;
 cd header;
 
-#====================HEADER COMPONENT HTML===========================================
+#====================HEADER COMPONENT TS=============================================
 
 echo "import { Component } from '@angular/core';
 
@@ -815,7 +822,7 @@ echo "import { Component } from '@angular/core';
 export class HeaderComponent {
   constructor() { }
 }
-" > header.component.html;
+" > header.component.ts;
 
 #=================HEADER COMPONENT SPEC TS===========================================
 
@@ -918,7 +925,7 @@ describe('AccueilComponent', () => {
 
 #====================================================================================
 
-touch accueil.component.html;
+touch accueil.component.scss;
 
 #====================================================================================
 
