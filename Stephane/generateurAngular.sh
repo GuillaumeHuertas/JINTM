@@ -1,20 +1,14 @@
 #!/bin/bash
 nom=$lenomduprojet;
 objet=$lenomdelobjet;
-# $objetsvaleurs;
+
+echo -e "\e[92mCreation du CRUD Angular\e[0m";
 
 cd $nom/angularApp/src/app/;
 
-
-#nom="projetangular";
 objetup=$objet;
 objetup=`echo ${objetup:0:1} | tr  '[a-z]' '[A-Z]'`${objetup:1};
 objets=$objet's';
-
-echo $objetup;
-echo $objet;
-echo $objets; 
-
 
 #=============================APP.MODULE;TS==========================================
 echo "import { BrowserModule } from '@angular/platform-browser';
@@ -370,7 +364,7 @@ echo "<div class=\"row\">
 
 for var in "${objetsvaleurs[@]}"
 	do
-	if [  $((i%2)) -eq 0 ];then
+	if [ $((i%2)) -eq 0 ];then
 		nomvar=${var};
 		declare -l nomvar
 		echo "<p class=\"list-group-item-text\">"$nomvar" : {{ "$objet"."$nomvar" }}</p>" >> "$objet"-list.component.html
@@ -622,10 +616,11 @@ for var in "${objetsvaleurs[@]}"
 #ECHO ICI
 echo "<div class=\"form-group\">
  <label for=\"$nomvar\">$nomvarup</label>" >>$objet-form.component.html;
-	if [[ $nomtype == "String" || $nomtype =="char" ]]; then
+
+	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ];then
 		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
 
-	elif  [[ $nomtype == "int" || $nomtype =="float" ]]; then
+	elif  [ "$nomtype" == "int" ] || [ "$nomtype" == "float" ];then
 echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
 fi
 echo "</div>" >> $objet-form.component.html;
@@ -668,8 +663,9 @@ for var in "${objetsvaleurs[@]}"
 	if [  $((i%2)) -eq 0 ];then
 		nomvar=${var};
 		declare -l nomvar
-echo ""$nomvar": ['', Validators.required]," >>  "$objet"-edit.component.ts;	
+echo $nomvar": ['', Validators.required]," >>  "$objet"-edit.component.ts;	
 fi
+done
 
 
 echo "  });
@@ -688,26 +684,26 @@ echo "  });
     this."$nomvar"1 = value
     this.initForm();
     });
-
   }
 
   initForm() {
     this."$nomvar"EditForm.setValue({" >> "$objet"-edit.component.ts;
+
+
 for var in "${objetsvaleurs[@]}"
 	do
 	if [  $((i%2)) -eq 0 ];then
 		nomvar=${var};
 		declare -l nomvar
-echo ""$nomvar": this."$objet"1."$nomvar"," >>  "$objet"-edit.component.ts;	
+echo $nomvar": this."$objet"1."$nomvar"," >>  "$objet"-edit.component.ts;	
 fi
-
+done
  echo " });
   }
 
   onSave"$objet"() {
  	const new"$objet" = new "$objet"();
 	new"$objet".id=+this.id;
-
 " >> "$objet"-edit.component.ts;
 
 for var in "${objetsvaleurs[@]}"
@@ -718,8 +714,7 @@ for var in "${objetsvaleurs[@]}"
 echo "const "$nomvar" = this."$objet"EditForm.get('"$nomvar"').value;
 new"$objet"."$nomvar" = "$nomvar"; " >>  "$objet"-edit.component.ts;	
 fi
-
-
+done
  echo "   this.service.editOne"$objet"(new"$objet").subscribe(data =>{this.router.navigate(['/"$objet"']);});
   }
 
@@ -728,7 +723,7 @@ fi
   }
 
 }
-">> "$objet"-edit.component.ts;
+" >> "$objet"-edit.component.ts;
 
 #===================OBJET-EDIT.COMPONENT.SPEC.TS=====================================
 
@@ -782,15 +777,13 @@ for var in "${objetsvaleurs[@]}"
 #ECHO ICI
 echo "<div class=\"form-group\">
  <label for=\"$nomvar\">$nomvarup</label>" >>$objet-form.component.html;
-	if [[ $nomtype == "String" || $nomtype =="char" ]]; then
+	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ]; then
 		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
 
-	elif  [[ $nomtype == "int" || $nomtype =="float" ]]; then
+	elif  [ "$nomtype" == "int" ] || [ "$nomtype" == "float" ]; then
 echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
 fi
 echo "</div>" >> $objet-form.component.html;
-
-
 	fi
 	let "i++";
 	done
@@ -804,10 +797,9 @@ echo "</div>" >> $objet-form.component.html;
 </div>
 " >> $objet-form.component.html;
 
-
-
 #====================================================================================
-cd ../..;
+
+cd ../.. ;
 mkdir header;
 cd header;
 
@@ -852,14 +844,14 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-" > header.component.spec.ts
+" > header.component.spec.ts;
 
 #====================================================================================
 
 touch header.component.scss;
 
 #====================================================================================
-##############################################################
+
 echo "<nav class=\"navbar navbar-default\">
   <div class=\"container-fluid\">
     <ul class=\"nav navbar-nav\">
@@ -883,7 +875,6 @@ cd accueil;
 #====================================================================================
 
 echo "import { Component } from '@angular/core';
-
 
   @Component({
     selector: 'app-accueil',
@@ -932,48 +923,8 @@ touch accueil.component.html;
 #====================================================================================
 
 echo "<h1>J-INTM</h1>
-<h2>Bienvenue sur JITNM</h2>< br/>un generateur de code angular, maven." > accueil.component.html
+<h2>Bienvenue sur JITNM</h2>< br/>un generateur de code angular, maven." > accueil.component.html;
 
 #====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
-#====================================================================================
-
+echo -e "\e[91mFin de la création du CRUD Angular \e[0m";
 

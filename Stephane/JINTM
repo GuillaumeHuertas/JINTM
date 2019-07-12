@@ -8,7 +8,7 @@ echo "     | | ______ | |    |   \ | |  |_/ | | \_|  |   \/   |   "
 echo " _   | ||______|| |    | |\ \| |      | |      | |\  /| |   "
 echo "| |__' |       _| |_  _| |_\   |_    _| |_    _| |_\/_| |_  "
 echo -e "\`.____.'      |_____||_____|\____|  |_____|  |_____||_____| \e[39m"
-                                                            
+
 
 
 
@@ -16,7 +16,7 @@ echo -e "\`.____.'      |_____||_____|\____|  |_____|  |_____||_____| \e[39m"
 read -p "Quel est le nom de votre projet ? " projet
 # Place le package dans une variable
 read -p "Quel est le nom de votre package ? " package
-# Choisir entre Postgres et Mysql 
+# Choisir entre Postgres et Mysql
 #read -p "Quel Base de donnée voulez-vous utiliser ? "
 
 #tout mettre en minuscule
@@ -33,7 +33,7 @@ mvn archetype:generate -DgroupId=$package -DartifactId=$projet -DarchetypeArtifa
 
 echo -e "\e[91mFin de la génération du projet Maven\e[39m"
 # Se déplace dans le projet
-cd $projet; 
+cd $projet;
 # Créer les dossiers pour le projet
 mkdir -p src/main/java >>.log 1>>.log 2>>.log
 mkdir -p src/main/resources >>.log 1>>.log 2>>.log
@@ -46,8 +46,8 @@ ng new angularApp --skipGit=true --interactive=false --routing=true --style=scss
 echo -e "\e[91mFin de la génération du projet Angular\e[39m"
 
 # Se déplace dans l'application Angular
-cd angularApp; 
-# Installe boostrap dans le projet 
+cd angularApp;
+# Installe boostrap dans le projet
 echo -e "\e[92mInstallation de Bootstrap ( faites le avec le style ! )\e[39m";
 npm install bootstrap@3.3.7 --save >>../../.log 1>>../../.log 2>>../../.log
 echo -e "\e[91mFin de l'installation de Boostrap\e[39m"
@@ -56,7 +56,7 @@ echo -e "\e[91mFin de l'installation de Boostrap\e[39m"
 sed -i '0,/"src\/styles.scss"/ s/"src\/styles.scss"/ "src\/styles.scss",\
 "node_modules\/bootstrap\/dist\/css\/bootstrap.css"/' angular.json;
 
-cd ..; 
+cd ..;
 echo -e "\e[92mConfiguration de Maven\e[39m";
 # Réécris le pom.xml pour ajouter toutes les dépendances nécessaires
 echo '<project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -127,14 +127,14 @@ echo -e "\e[92mCreation du fichier de mise en prod\e[39m";
 echo '#!/bin/bash
 
 # Se déplace dans le projet Angular (il faut standardiser le nom)
-cd angularApp; 
+cd angularApp;
 # Transpile le projet Angular vers le dossier static dans le projet Maven
-ng build --prod --outputPath="../src/main/resources/static/"; 
-cd ..; 
+ng build --prod --outputPath="../src/main/resources/static/";
+cd ..;
 # Compile le projet Maven
-mvn install; 
-cd target; 
-java -jar *.war; ' >> .compilateur; 
+mvn install;
+cd target;
+java -jar *.war; ' >> .compilateur;
 
 # Déclare le compilateur comme exécutable
 chmod 755 .compilateur >>../.log 1>>../.log 2>>../.log
@@ -146,13 +146,13 @@ lepackageduprojet=$package;
 
 
 cd ..;
-	. ./questions.sh
+. ./questions.sh
 
 echo -e "\e[92mInitialisation du dépôt Git\e[39m"
 # Initialise le dépôt Git
 git init >>../.log 1>>../.log 2>>../.log
-# Ajoute les fichier au HEAD 
-git add . >>../.log 1>>../.log 2>>../.log 
+# Ajoute les fichier au HEAD
+git add . >>../.log 1>>../.log 2>>../.log
 # Commit les fichiers
 git commit -m "Initialisation du projet" >>../.log 1>>../.log 2>>../.log
 
