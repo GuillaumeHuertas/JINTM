@@ -6,16 +6,16 @@ objet=$lenomdelobjet;
 echo -e "\e[92mCreation de la classe d'api\e[0m";
 
 for var in "${objetsvaleurs[@]}"
-	do
-	if [  $((i%2)) -eq 0 ];then
-		nomvar=${var};
-	else
-		nomtype=${var};
-		echo -e ">> $nomvar \t $nomtype $cr"
-	fi
-	done
+do
+    if [  $((i%2)) -eq 0 ];then
+        nomvar=${var};
+    else
+        nomtype=${var};
+        echo -e ">> $nomvar \t $nomtype $cr"
+    fi
+done
 #--------------------------------------------------------------------------------
- 
+
 declare -l objet
 objet=$objet;
 
@@ -60,7 +60,7 @@ cd ..;
 cd java;
 for i in "${ADDR[@]}"; do # access each element of array
     mkdir $i;
-    cd $i; 
+    cd $i;
 done
 
 
@@ -154,7 +154,7 @@ for var in "${objetsvaleurs[@]}"
 		nomvarup=`echo ${nomvarup:0:1} | tr  '[a-z]' '[A-Z]'`${nomvarup:1}
 
 
-	
+
 	else
 		nomtype=${var};
 
@@ -166,7 +166,7 @@ for var in "${objetsvaleurs[@]}"
 	}
 	public $nomtype get$nomvarup(){
 		return $nomvar;
-} 
+}
 
 " >> $objetup.java;
 
@@ -259,13 +259,13 @@ public class "$objetup"Controller {
 	@PutMapping(\"/$objet\")
     public ResponseEntity<$objetup> update"$objetup"(@Valid @RequestBody $objetup "$objet"Details) throws ResourceNotFoundException {
         $objetup $objet = "$objet"Repository.findById("$objet"Details.getId())
-                .orElseThrow(() -> new ResourceNotFoundException(\"$objetup not found for this id :: \" + "$objet"Details.getId()));        
+                .orElseThrow(() -> new ResourceNotFoundException(\"$objetup not found for this id :: \" + "$objet"Details.getId()));
 /*BALISEATROUVER*/
 
         final $objetup updated"$objetup" = "$objet"Repository.save($objet);
         return ResponseEntity.ok(updated"$objetup");
     }
-	
+
 	@DeleteMapping(\"/$objet/{id}\")
 	public Map<String, Boolean> delete"$objetup"(@PathVariable(value = \"id\") Long "$objet"Id)
 			throws ResourceNotFoundException {
@@ -282,7 +282,7 @@ public class "$objetup"Controller {
 
 " > "$objetup"Controller.java;
 
-cd ..;
+
 for var in "${objetsvaleurs[@]}"
 	do
 	if [  $((i%2)) -eq 0 ];then
@@ -296,11 +296,9 @@ for var in "${objetsvaleurs[@]}"
 	let "i++";
 done
 
-cd ..
-
-
+cd ..;
 for i in "${ADDR[@]}"; do # access each element of array
-    cd ..; 
+    cd ..;
 done
 
 cd ../../..;
