@@ -135,10 +135,18 @@ cd ..;
 mvn install; 
 cd target; 
 java -jar *.war; ' >> .compilateur; 
+
 # Déclare le compilateur comme exécutable
 chmod 755 .compilateur >>../.log 1>>../.log 2>>../.log
 
 echo -e "\e[91mFin de creation du fichier de mise en prod\e[39m";
+
+lenomduprojet=$projet;
+lepackageduprojet=$package;
+
+
+cd ..;
+	. ./questions.sh
 
 echo -e "\e[92mInitialisation du dépôt Git\e[39m"
 # Initialise le dépôt Git
@@ -150,9 +158,4 @@ git commit -m "Initialisation du projet" >>../.log 1>>../.log 2>>../.log
 
 echo -e "\e[91mFin d'initialisation du dépôt Git\e[39m"
 
-lenomduprojet=$projet;
-lepackageduprojet=$package;
 
-
-cd ..;
-	. ./questions.sh

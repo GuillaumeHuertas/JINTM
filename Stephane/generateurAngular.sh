@@ -4,9 +4,7 @@ objet=$lenomdelobjet;
 # $objetsvaleurs;
 
 cd $nom/angularApp/src/app/;
-#mkdir test;
-#cd test;
-#objet="classe1";
+
 
 #nom="projetangular";
 objetup=$objet;
@@ -601,11 +599,11 @@ describe('"$objetup"FormComponent', () => {
 });
 " > $objet-form.component.spec.ts
 
-#====================================================================================
+#=====================OBJET-FORM.COMPONENT.SCSS======================================
 
 touch $objet-form.component.scss;
 
-#====================================================================================
+#=====================OBJET-FORM.COMPONENT.HTML======================================
 
 echo "<div class=\"row\">
   <div class=\"col-sm-8 col-sm-offset-2\">
@@ -648,7 +646,293 @@ echo "</div>" >> $objet-form.component.html;
 
 
 
+#==================OBJET-EDIT.COMPONENT.TS===========================================
+
+echo "import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { "$objetup"Service } from 'src/app/services/"$objet".service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { "$objet" } from 'src/app/models/"$objet".model';
+
+@Component({
+  selector: 'app-"$objet"-edit',
+  templateUrl: './"$objet"-edit.component.html',
+  styleUrls: ['./"$objet"-edit.component.scss']
+})
+export class "$objetup"EditComponent implements OnInit {
+
+  "$objet"EditForm = this.formBuilder.group({" > "$objet"-edit.component.ts;
+
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+		declare -l nomvar
+echo ""$nomvar": ['', Validators.required]," >>  "$objet"-edit.component.ts;	
+fi
+
+
+echo "  });
+  
+  constructor(private formBuilder: FormBuilder,
+    private service: "$nomvarup"Service,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
+  id: any;
+  "$nomvar"1: "$nomvar";
+
+  ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    this.service.getsingle"$nomvar"(+this.id).subscribe((value) => {
+    this."$nomvar"1 = value
+    this.initForm();
+    });
+
+  }
+
+  initForm() {
+    this."$nomvar"EditForm.setValue({" >> "$objet"-edit.component.ts;
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+		declare -l nomvar
+echo ""$nomvar": this."$objet"1."$nomvar"," >>  "$objet"-edit.component.ts;	
+fi
+
+ echo " });
+  }
+
+  onSave"$objet"() {
+ 	const new"$objet" = new "$objet"();
+	new"$objet".id=+this.id;
+
+" >> "$objet"-edit.component.ts;
+
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+		declare -l nomvar
+echo "const "$nomvar" = this."$objet"EditForm.get('"$nomvar"').value;
+new"$objet"."$nomvar" = "$nomvar"; " >>  "$objet"-edit.component.ts;	
+fi
+
+
+ echo "   this.service.editOne"$objet"(new"$objet").subscribe(data =>{this.router.navigate(['/"$objet"']);});
+  }
+
+  onAnnuler() {
+    this.router.navigate(['/"$objet"']);
+  }
+
+}
+">> "$objet"-edit.component.ts;
+
+#===================OBJET-EDIT.COMPONENT.SPEC.TS=====================================
+
+echo "import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { "$objetup"EditComponent } from './"$objet"-edit.component';
+
+describe('"$objetup"EditComponent', () => {
+  let component: "$objetup"EditComponent;
+  let fixture: ComponentFixture<"$objetup"EditComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ "$objetup"EditComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent("$objetup"EditComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+}); " > "$objet"-edit.component.spec.ts;
+
+
+#================OBJET-EDIT.COMPONENT.SCSS===========================================
+
+touch "$objet"-edit.component.scss;
+
+#================OBJET-EDIT.COMPONENT.HTML===========================================
+
+echo "<div class=\"row\">
+  <div class=\"col-sm-8 col-sm-offset-2\">
+    <h2>Créer un "$objetup"</h2>
+    <form [formGroup]=\""$objet"EditForm\" (ngSubmit)=\"onSave"$objet"()\">" > $objet-form.component.html;
+
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+		declare -l nomvar
+		nomvarup=$nomvar;
+		nomvarup=`echo ${nomvarup:0:1} | tr  '[a-z]' '[A-Z]'`${nomvarup:1}	
+	else
+		nomtype=${var};
+#ECHO ICI
+echo "<div class=\"form-group\">
+ <label for=\"$nomvar\">$nomvarup</label>" >>$objet-form.component.html;
+	if [[ $nomtype == "String" || $nomtype =="char" ]]; then
+		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+
+	elif  [[ $nomtype == "int" || $nomtype =="float" ]]; then
+echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+fi
+echo "</div>" >> $objet-form.component.html;
+
+
+	fi
+	let "i++";
+	done
+    
+   echo "<button class=\"btn btn-success\" [disabled]=\""$objet"EditForm.invalid\" type=\"submit\">Enregistrer
+      </button>
+    </form>
+    <button class=\"btn btn-danger\" (click)=\"onAnnuler()\">Annuler
+    </button>
+  </div>
+</div>
+" >> $objet-form.component.html;
+
+
+
 #====================================================================================
+cd ../..;
+mkdir header;
+cd header;
+
+#====================HEADER COMPONENT HTML===========================================
+
+echo "import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent {
+  constructor() { }
+}
+" > header.component.html;
+
+#=================HEADER COMPONENT SPEC TS===========================================
+
+echo "import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HeaderComponent } from './header.component';
+
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HeaderComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+" > header.component.spec.ts
+
+#====================================================================================
+
+touch header.component.scss;
+
+#====================================================================================
+##############################################################
+echo "<nav class=\"navbar navbar-default\">
+  <div class=\"container-fluid\">
+    <ul class=\"nav navbar-nav\">
+        <li routerLinkActive=\"active\">
+            <a routerLink=\"accueil\">Accueil</a>
+          </li>
+      <li routerLinkActive=\"active\">
+        <a routerLink=\""$objet"\">"$objetup"</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+" > header.component.html;
+
+#====================================================================================
+
+cd ..;
+mkdir accueil;
+cd accueil;
+
+#====================================================================================
+
+echo "import { Component } from '@angular/core';
+
+
+  @Component({
+    selector: 'app-accueil',
+    templateUrl: './accueil.component.html',
+    styleUrls: ['./accueil.component.scss']
+  })
+  export class AccueilComponent {
+
+    constructor() { }
+  }
+" > accueil.component.ts;
+
+#====================================================================================
+
+echo "import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AccueilComponent } from './accueil.component';
+
+describe('AccueilComponent', () => {
+  let component: AccueilComponent;
+  let fixture: ComponentFixture<AccueilComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AccueilComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AccueilComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+" > accueil.component.spec.ts;
+
+#====================================================================================
+
+touch accueil.component.html;
+
+#====================================================================================
+
+echo "<h1>J-INTM</h1>
+<h2>Bienvenue sur JITNM</h2>< br/>un generateur de code angular, maven." > accueil.component.html
 
 #====================================================================================
 
@@ -673,4 +957,23 @@ echo "</div>" >> $objet-form.component.html;
 #====================================================================================
 
 #====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
+#====================================================================================
+
 

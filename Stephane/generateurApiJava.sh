@@ -282,7 +282,7 @@ public class "$objetup"Controller {
 
 " > "$objetup"Controller.java;
 
-
+cd ..;
 for var in "${objetsvaleurs[@]}"
 	do
 	if [  $((i%2)) -eq 0 ];then
