@@ -375,7 +375,7 @@ for var in "${objetsvaleurs[@]}"
 
  echo "</button>
     </div>
-    <button class=\"btn btn-primary\" (click)=\"on"$objetup"()\">Nouveau "$objet"</button>
+    <button class=\"btn btn-primary\" (click)=\"onNew"$objet"()\">Nouveau "$objet"</button>
   </div>
 </div>" >> "$objet"-list.component.html
 
