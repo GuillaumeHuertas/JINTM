@@ -223,7 +223,7 @@ cd notfound;
 
 #========================NOTFOUND.COMPONENT.TS=======================================
 
-echo "import { Component, OnInit } from '@angular/core';
+echo "import { Component } from '@angular/core';
 import { Router } from '@angular/router'
 
 @Component({
@@ -231,7 +231,7 @@ import { Router } from '@angular/router'
   templateUrl: './notfound.component.html',
   styleUrls: ['./notfound.component.scss']
 })
-export class NotfoundComponent implements OnInit {
+export class NotfoundComponent {
 
   constructor(private route: Router) { }
 
@@ -553,7 +553,7 @@ for var in "${objetsvaleurs[@]}"
 	fi
 	let "i++";
 	done
-    echo "this.service.create"$objetup"(new"$objet").subscribe(data => { this.router.navigate(['/"$objet"']); });
+    echo "this.service.createNew"$objet"(new"$objet").subscribe(data => { this.router.navigate(['/"$objet"']); });
 
   }
 
@@ -933,5 +933,39 @@ echo "<h1>J-INTM</h1>
 <h2>Bienvenue sur JITNM</h2>< br/>un generateur de code angular, maven." > accueil.component.html;
 
 #====================================================================================
+
+cd ..;
+mkdir models;
+cd models;
+
+#======================OBJET MODEL TS================================================
+
+echo "export class $objet {
+    id: number;
+    /*Ajouter les attributs de l'objet */
+    constructor() { }" > $objet.model.ts
+
+for var in "${objetsvaleurs[@]}"
+	do
+	if [  $((i%2)) -eq 0 ];then
+		nomvar=${var};
+		declare -l nomvar	
+	else
+		nomtype=${var};
+#ECHO ICI
+	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ]; then
+		echo "$nomvar: string;" >> $objet.model.ts
+
+	elif  [ "$nomtype" == "int" ] || [ "$nomtype" == "float" ]; then
+echo "$nomvar: number;" >> $objet.model.ts;
+fi
+	fi
+	let "i++";
+	done
+
+echo "}" >>$objet.model.ts
+
+#====================================================================================
+
 echo -e "\e[91mFin de la création du CRUD Angular \e[0m";
 
