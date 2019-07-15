@@ -669,7 +669,10 @@ for var in "${objetsvaleurs[@]}"
 		declare -l nomvar
 echo $nomvar": ['', Validators.required]," >>  "$objet"-edit.component.ts;	
 fi
+<<<<<<< HEAD
 	let "i++";
+=======
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 done
 
 
@@ -692,9 +695,15 @@ echo "  });
   }
 
   initForm() {
+<<<<<<< HEAD
     this."$objet"EditForm.setValue({" >> "$objet"-edit.component.ts;
 
 i=0;
+=======
+    this."$nomvar"EditForm.setValue({" >> "$objet"-edit.component.ts;
+
+
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 for var in "${objetsvaleurs[@]}"
 	do
 	if [ $((i%2)) -eq 0 ];then
@@ -702,7 +711,10 @@ for var in "${objetsvaleurs[@]}"
 		declare -l nomvar
 echo $nomvar": this."$objet"1."$nomvar"," >>  "$objet"-edit.component.ts;	
 fi
+<<<<<<< HEAD
 	let "i++";
+=======
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 done
  echo " });
   }
@@ -720,7 +732,10 @@ for var in "${objetsvaleurs[@]}"
 echo "const "$nomvar" = this."$objet"EditForm.get('"$nomvar"').value;
 new"$objet"."$nomvar" = "$nomvar"; " >>  "$objet"-edit.component.ts;	
 fi
+<<<<<<< HEAD
 	let "i++";
+=======
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 done
  echo "   this.service.editOne"$objet"(new"$objet").subscribe(data =>{this.router.navigate(['/"$objet"']);});
   }
@@ -783,6 +798,7 @@ for var in "${objetsvaleurs[@]}"
 		nomtype=${var};
 #ECHO ICI
 echo "<div class=\"form-group\">
+<<<<<<< HEAD
  <label for=\"$nomvar\">$nomvarup</label>" >>$objet-edit.component.html;
 	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ]; then
 		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-edit.component.html;
@@ -791,6 +807,16 @@ echo "<div class=\"form-group\">
 echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-edit.component.html;
 fi
 echo "</div>" >> $objet-edit.component.html;
+=======
+ <label for=\"$nomvar\">$nomvarup</label>" >>$objet-form.component.html;
+	if [ "$nomtype" == "String" ] || [ "$nomtype" == "char" ]; then
+		echo "<input type=\"text\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+
+	elif  [ "$nomtype" == "int" ] || [ "$nomtype" == "float" ]; then
+echo "<input type=\"number\" id=\"$nomvar\" class=\"form-control\" formControlName=\"$nomvar\">" >> $objet-form.component.html;
+fi
+echo "</div>" >> $objet-form.component.html;
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 	fi
 	let "i++";
 	done
@@ -802,7 +828,11 @@ echo "</div>" >> $objet-edit.component.html;
     </button>
   </div>
 </div>
+<<<<<<< HEAD
 " >> $objet-edit.component.html;
+=======
+" >> $objet-form.component.html;
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 
 #====================================================================================
 
@@ -933,6 +963,7 @@ echo "<h1>J-INTM</h1>
 <h2>Bienvenue sur JITNM</h2>< br/>un generateur de code angular, maven." > accueil.component.html;
 
 #====================================================================================
+<<<<<<< HEAD
 
 cd ..;
 mkdir models;
@@ -967,5 +998,7 @@ echo "}" >>$objet.model.ts
 
 #====================================================================================
 
+=======
+>>>>>>> 235f5de520e28bb1d83d4a2a0d4e3a2a00eccf24
 echo -e "\e[91mFin de la création du CRUD Angular \e[0m";
 
