@@ -47,8 +47,21 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialec
 
 # Hibernate ddl auto (create, create-drop, validate, update)
 spring.jpa.hibernate.ddl-auto = update
-spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true" > application.properties;
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true" > application-prod.properties;
 
+
+echo "# H2
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+# Datasource
+spring.datasource.url=jdbc:h2:file:~/dev
+spring.datasource.username=sa
+spring.datasource.password=
+spring.datasource.driver-class-name=org.h2.Driver" > application-dev.properties
+
+
+echo "spring.profiles.active=dev" > application.properties
 
 
 cd ..;
@@ -104,7 +117,41 @@ public class ResourceNotFoundException extends Exception{
 cd ..;
 
 
-#--------------------------------------------------------------------------------#--------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------
+
+mkdir configuration;
+cd configuration;
+
+
+echo "package $str.configuration;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+@Configuration
+@ConfigurationProperties(\"spring.datasource\")
+@SuppressWarnings(\"unused\")
+public class DBConfiguration {
+
+	@Profile(\"dev\")
+	@Bean
+	public String devDatabaseConnection() {
+		System.out.println(\"mode dev\");
+		return \"DB connection for DEV - POSTGRES\";
+	}
+	
+	@Profile(\"prod\")
+	@Bean
+	public String prodDatabaseConnection() {
+		System.out.println(\"mode prod\");
+		return \"DB connection for DEV - POSTGRES\";
+	}
+}
+" > DBConfiguration.java; 
+cd ..;
+
+#--------------------------------------------------------------------------------
 
 
 mkdir model;

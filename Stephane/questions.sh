@@ -24,7 +24,7 @@ done
 
 if [ $reponseup == "N" ] ; then
     
-    exit -1;
+loloololo="gggg";
     
 else
     break="false"

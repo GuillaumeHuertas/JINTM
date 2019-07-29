@@ -28,10 +28,13 @@ package=$package;
 
 # Genere une application maven avec l'archetype webapp
 
-echo -e "\e[92mDemarrage de la génération du projet Maven\e[39m";
+echo -ne '#                   (00%) - Génération du projet Maven\r'
+
+
+#echo -e "\e[92mDemarrage de la génération du projet Maven\e[39m";
 mvn archetype:generate -DgroupId=$package -DartifactId=$projet -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false >>.log 1>>.log 2>>.log
 
-echo -e "\e[91mFin de la génération du projet Maven\e[39m"
+#echo -e "\e[91mFin de la génération du projet Maven\e[39m"
 # Se déplace dans le projet
 cd $projet;
 # Créer les dossiers pour le projet
@@ -40,24 +43,33 @@ mkdir -p src/main/resources >>.log 1>>.log 2>>.log
 mkdir -p src/test/java >>.log 1>>.log 2>>.log
 mkdir -p src/test/resources >>.log 1>>.log 2>>.log
 
-echo -e "\e[92mDemarrage de la génération du projet Angular\e[39m";
+
+echo -ne '####                (20%) - Génération du projet Angular\r'
+#echo -e "\e[92mDemarrage de la génération du projet Angular\e[39m";
 # Génère une application angular
 ng new angularApp --skipGit=true --interactive=false --routing=true --style=scss >>../.log 1>>../.log 2>>../.log
-echo -e "\e[91mFin de la génération du projet Angular\e[39m"
+#echo -e "\e[91mFin de la génération du projet Angular\e[39m"
 
 # Se déplace dans l'application Angular
 cd angularApp;
 # Installe boostrap dans le projet
-echo -e "\e[92mInstallation de Bootstrap ( faites le avec le style ! )\e[39m";
+
+
+echo -ne '########            (40%) - Installation de Bootstrap\r'
+
+#echo -e "\e[92mInstallation de Bootstrap ( faites le avec le style ! )\e[39m";
 npm install bootstrap@3.3.7 --save >>../../.log 1>>../../.log 2>>../../.log
-echo -e "\e[91mFin de l'installation de Boostrap\e[39m"
+#echo -e "\e[91mFin de l'installation de Boostrap\e[39m"
 
 #Remplacer la premiere occurence de style pour y ajouter le bootstrap
 sed -i '0,/"src\/styles.scss"/ s/"src\/styles.scss"/ "src\/styles.scss",\
 "node_modules\/bootstrap\/dist\/css\/bootstrap.css"/' angular.json;
 
 cd ..;
-echo -e "\e[92mConfiguration de Maven\e[39m";
+
+echo -ne '############        (60%) - Configuration de Maven\r'
+
+#echo -e "\e[92mConfiguration de Maven\e[39m";
 # Réécris le pom.xml pour ajouter toutes les dépendances nécessaires
 echo '<project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -79,6 +91,11 @@ echo '<project xmlns="http://maven.apache.org/POM/4.0.0"
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+		<!-- H2 Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -120,8 +137,13 @@ echo '<project xmlns="http://maven.apache.org/POM/4.0.0"
 
 </project>' > pom.xml;
 
-echo -e "\e[91mFin de configuration de Maven\e[39m";
-echo -e "\e[92mCreation du fichier de mise en prod\e[39m";
+#echo -e "\e[91mFin de configuration de Maven\e[39m";
+#echo -e "\e[92mCreation du fichier de mise en prod\e[39m";
+
+
+echo -ne '################    (80%) - Creation du fichier de mise en prod\r'
+
+
 
 # Script pour compiler le programme
 echo '#!/bin/bash
@@ -139,7 +161,7 @@ java -jar *.war; ' >> .compilateur;
 # Déclare le compilateur comme exécutable
 chmod 755 .compilateur >>../.log 1>>../.log 2>>../.log
 
-echo -e "\e[91mFin de creation du fichier de mise en prod\e[39m";
+#echo -e "\e[91mFin de creation du fichier de mise en prod\e[39m";
 
 lenomduprojet=$projet;
 lepackageduprojet=$package;
@@ -148,7 +170,11 @@ lepackageduprojet=$package;
 cd ..;
 . ./questions.sh
 
-echo -e "\e[92mInitialisation du dépôt Git\e[39m"
+#echo -e "\e[92mInitialisation du dépôt Git\e[39m"
+echo -ne '################### (99%) - Initialisation du dépôt Git\r'
+
+
+
 # Initialise le dépôt Git
 git init >>../.log 1>>../.log 2>>../.log
 # Ajoute les fichier au HEAD
@@ -156,6 +182,15 @@ git add . >>../.log 1>>../.log 2>>../.log
 # Commit les fichiers
 git commit -m "Initialisation du projet" >>../.log 1>>../.log 2>>../.log
 
-echo -e "\e[91mFin d'initialisation du dépôt Git\e[39m"
+#echo -e "\e[91mFin d'initialisation du dépôt Git\e[39m"
 
 
+
+for ((i=0 ; 10 - $i ; i++))
+    do
+echo -ne '   Votre projet est pret a être utilisé. Merci d avoir utiliser JINTM   \r';
+sleep 0.5;
+echo -ne '---Votre projet est pret a être utilisé. Merci d avoir utiliser JINTM---\r';
+sleep 0.5;
+done
+echo -e;
