@@ -23,10 +23,11 @@ Une fois les informations entrés, le script va :
   -créer un dossier pour l'application,
   -générer une architecture maven avec l'archetype maven-archetype-webapp à  l'aide du CLI Maven, 
   -créer les dossiers et sous dossiers java, ressources et les tests, 
-  -génère une application angular à la racine du dossier avec routing
-  -install boostrap dans l'applciation angular
-  -modifie le pom.xml pour prendre en comtpe les paramètres entré par l'utilisateur
-  -lance des scripts qui génèrent les classes d'API en fonction des réponses au questions précédentes
+  -génère une application angular à la racine du dossier avec routing,
+  -install boostrap dans l'applciation angular,
+  -modifie le pom.xml pour prendre en comtpe les paramètres entré par l'utilisateur,
+  -lance des scripts qui génèrent les classes d'API en fonction des réponses au questions précédentes du front to back, 
+  -initialise un dépôt git et effectue un premier commit.
   
   
 Un script est ajouté pour transpiller le projet Angular dans le projet maven, pui compiler le maven et éxécuter le .war compilé. 
